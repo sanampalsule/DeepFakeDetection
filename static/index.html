@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deepfake Classifier</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+    }
+    .processing {
+      color: orange;
+      font-weight: bold;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Deepfake Video Classifier</h1>
+  <p>Enter the URL of a YouTube video to classify it as real or fake:</p>
+  <input type="text" id="videoUrl" placeholder="Enter YouTube URL" />
+  <button onclick="classifyVideo()">Classify</button>
+  <p id="status" class="processing" style="display: none;">Processing...</p>
+  <p id="result" class="result"></p>
+  <p id="error" class="error"></p>
+
+  <script>
+    async function classifyVideo() {
+      // Clear previous messages
+      document.getElementById("status").style.display = "none";
+      document.getElementById("result").textContent = "";
+      document.getElementById("error").textContent = "";
+
+      const videoUrl = document.getElementById("videoUrl").value;
+      if (!videoUrl) {
+        alert("Please enter a YouTube URL.");
+        return;
+      }
+
+      // Show "Processing..." message
+      document.getElementById("status").style.display = "block";
+      document.getElementById("status").textContent = "Processing...";
+
+      try {
+        const response = await fetch("http://127.0.0.1:5000/classify", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ video_url: videoUrl }),
+        });
+
+        const data = await response.json();
+
+        // Hide "Processing..." message
+        document.getElementById("status").style.display = "none";
+
+        if (response.ok) {
+          document.getElementById("result").textContent = `Result: ${data.result.toUpperCase()} (Confidence: ${data.confidence.toFixed(2)})`;
+        } else {
+          document.getElementById("error").textContent = `Error: ${data.error}`;
+        }
+      } catch (err) {
+        document.getElementById("status").style.display = "none";
+        document.getElementById("error").textContent = `Error: ${err.message}`;
+      }
+    }
+  </script>
+</body>
+</html>

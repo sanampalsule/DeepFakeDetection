@@ -1,0 +1,20 @@
+# Flask for creating the web app
+flask
+
+# yt-dlp for downloading YouTube videos
+yt-dlp
+
+# OpenCV for video frame extraction and processing
+opencv-python
+
+# facenet-pytorch for face detection
+facenet-pytorch
+
+# TensorFlow for loading and running the LSTM model
+tensorflow
+
+# PyTorch and torchvision for facenet-pytorch dependencies
+torch
+torchvision
+
+flask_cors
