@@ -94,8 +94,8 @@ deepfake-classifier/
 5. **Output**: Final classification (real or fake) with confidence score.
 
 ---
-
-
+## **Workflow walkthrough**
+https://drive.google.com/file/d/1lTy5NC1_TWaiBNgZhWtUOzWWKxZzStQs/view?usp=sharing
 
 ## **Future Improvements**
 - Add more advanced deepfake detection models.
