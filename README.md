@@ -31,6 +31,7 @@ The **Deepfake Video Classifier** is a web-based application designed to classif
 ### **1. Prerequisites**
 - Python 3.8 or above
 - Node.js (optional for frontend)
+- Create a virtual environment
 - Libraries: Install required Python libraries using:
   ```bash
   pip install -r requirements.txt
