@@ -66,18 +66,29 @@ cd deepfake-classifier
 ## **File Structure**
 
 ```
+Here's a revised directory structure in the same format as the example:
+
+
 deepfake-classifier/
-│
-├── app.py                        # Flask backend API
-├── requirements.txt              # Python dependencies
-├── models/                       # Pretrained models
-├── static/                       # Frontend (HTML, CSS, JS)
-├── utils/
-│   ├── preprocessing.py          # Frame extraction and augmentation
-│   ├── feature_extraction.py     # Feature extraction logic
-│   └── model_utils.py            # Model loading and utility functions
-├── data/                         # Temporary storage for frames and features
-└── README.md                     # Project documentation
+├── __pycache__/                      # Compiled Python bytecode
+├── augmented_frames/                 # Augmented frame data
+├── features/                         # Extracted features from video
+├── processed_frames/                 # Processed video frames
+├── static/                           # Frontend resources (HTML, CSS, JS)
+│   └── index.html                    # Web application entry point
+├── temp_frames/                      # Temporary frame storage
+├── venv/                             # Virtual environment for dependencies
+├── aggregated_features...            # Aggregated feature data
+├── app.py                            # Flask backend API
+├── cv_DeepFake_detection_...         # Deepfake detection script
+├── CV_Project.pptx                   # Project presentation
+├── cvfinal.py                        # Final script for computer vision
+├── lstm_model.h5                     # Pretrained LSTM model
+├── new_video.mp4                     # Test video
+├── Project_Proposal.pdf              # Proposal document
+├── README.md                         # Project documentation
+└── requirements.txt                  # Python dependencies
+
 ```
 
 ---
